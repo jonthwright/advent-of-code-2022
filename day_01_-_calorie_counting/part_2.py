@@ -4,15 +4,25 @@ import os
 from heapq import heapify, heappop
 
 
+class Elf:
+	def __init__(self, calories: list[int]):
+		self.calories_consumed = sum(calories)
+
+	def __lt__(self, other: 'Elf') -> bool:
+		return self.calories_consumed > other.calories_consumed
+
+	def __eq__(self, other: 'Elf') -> bool:
+		return self.calories_consumed == other.calories_consumed
+
+	def __gt__(self, other: 'Elf') -> bool:
+		return self.calories_consumed < other.calories_consumed
+
+
 def solution(elements: list[list[int]]) -> int:
-	elves_calories = [sum(elf_calories) * -1 for elf_calories in elements]
+	elves_calories = [Elf(elf_calories) for elf_calories in elements]
 	heapify(elves_calories)
 
-	three_largest_elves_sum = 0
-	for _ in range(3):
-		three_largest_elves_sum += heappop(elves_calories)
-	
-	return three_largest_elves_sum * -1
+	return sum(heappop(elves_calories).calories_consumed for _ in range(3))
 
 
 def main():
@@ -23,6 +33,7 @@ def main():
 
 	print('Day 01 : Calorie Counting - part 2')
 	print(f'>>> Answer : {solution(inputs)}')
+
 
 if __name__ == '__main__':
 	main()

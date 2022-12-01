@@ -16,5 +16,6 @@ def main():
 	print('Day 01 : Calorie Counting - part 1')
 	print(f'>>> Answer : {solution(inputs)}')
 
+
 if __name__ == '__main__':
 	main()
