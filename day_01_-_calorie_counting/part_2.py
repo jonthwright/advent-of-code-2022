@@ -4,7 +4,7 @@ import os
 from heapq import heapify, heappop
 
 
-def solution(elements: list[int]) -> int:
+def solution(elements: list[list[int]]) -> int:
 	elves_calories = [sum(elf_calories) * -1 for elf_calories in elements]
 	heapify(elves_calories)
 

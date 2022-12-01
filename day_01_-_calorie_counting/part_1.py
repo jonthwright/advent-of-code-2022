@@ -3,7 +3,7 @@
 import os
 
 
-def solution(elements: list[int]) -> int:
+def solution(elements: list[list[int]]) -> int:
 	return max(sum(elf_calories) for elf_calories in elements)
 
 
