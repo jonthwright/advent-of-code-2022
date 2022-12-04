@@ -10,7 +10,7 @@ def solution(elements: list[tuple[str, str]]) -> int:
 def main():
 	aoc_day_loc = os.path.dirname(__file__)
 
-	with open(os.path.join(aoc_day_loc, 'input_file.txt'), 'r') as file:
+	with open(os.path.join(aoc_day_loc, 'inputs.txt'), 'r') as file:
 		inputs = [tuple(element for element in line.strip().split(' ')) for line in file.readlines()]
 
 	print('Day 02 : Rock Paper Scissors - part 1')
