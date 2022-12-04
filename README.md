@@ -11,7 +11,7 @@ Completed the challenges primarily in Python.
 |     **01**     |    [**_Calorie Counting_**](https://adventofcode.com/2022/day/1)     |    [Click here](./day_01_-_calorie_counting/part_1.py)     |    [Click here](./day_01_-_calorie_counting/part_2.py)     |
 |     **02**     |   [**_Rock Paper Scissors_**](https://adventofcode.com/2022/day/2)   |   [Click here](./day_02_-_rock_paper_scissors/part_1.py)   |   [Click here](./day_02_-_rock_paper_scissors/part_2.py)   |
 |     **03**     | [**_Rucksack Reorganization_**](https://adventofcode.com/2022/day/3) | [Click here](./day_03_-_rucksack_reorganization/part_1.py) | [Click here](./day_03_-_rucksack_reorganization/part_2.py) |
-|     **04**     |         [**_(none)_**](https://adventofcode.com/2022/day/4)          |            [Click here](./day_04_-_/part_1.py)             |            [Click here](./day_04_-_/part_2.py)             |
+|     **04**     |      [**_Camp Cleanup_**](https://adventofcode.com/2022/day/4)       |      [Click here](./day_04_-_camp_cleanup/part_1.py)       |      [Click here](./day_04_-_camp_cleanup/part_2.py)       |
 |     **05**     |         [**_(none)_**](https://adventofcode.com/2022/day/5)          |                      [Click here](.)                       |                      [Click here](.)                       |
 |     **06**     |         [**_(none)_**](https://adventofcode.com/2022/day/6)          |                      [Click here](.)                       |                      [Click here](.)                       |
 |     **07**     |         [**_(none)_**](https://adventofcode.com/2022/day/7)          |                      [Click here](.)                       |                      [Click here](.)                       |
