@@ -28,8 +28,8 @@ def solution(elements: list[set[str]]) -> int:
 def main():
 	aoc_day_loc = os.path.dirname(__file__)
 
-	with open(os.path.join(aoc_day_loc, 'input_file.txt'), 'r') as f:
-		inputs = [set(line.strip()) for line in f.readlines()]
+	with open(os.path.join(aoc_day_loc, 'input_file.txt'), 'r') as file:
+		inputs = [set(line.strip()) for line in file.readlines()]
 
 	print('Day 03 : Rucksack Reorganization - part 2')
 	print(f'>>> Answer : {solution(inputs)}')
