@@ -3,8 +3,8 @@
 import os
 
 
-def elf_assignments_overlaps(elf_one: tuple[int, int], elf_two: tuple[int, int]) -> bool:
-	return min(elf_two) <= max(elf_one) and min(elf_one) <= max(elf_two)
+def elf_assignments_overlaps(elf_assignment_one: tuple[int, int], elf_assignment_two: tuple[int, int]) -> bool:
+	return min(elf_assignment_two) <= max(elf_assignment_one) and min(elf_assignment_one) <= max(elf_assignment_two)
 
 
 def solution(elements: list[tuple[tuple[int, int], tuple[int, int]]]) -> int:
