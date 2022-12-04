@@ -3,15 +3,15 @@
 import os
 
 
-def elf_assignments_fully_contain(elf_assignment_one: tuple[int, int], elf_assignment_two: tuple[int, int]) -> bool:
-	def fully_contain(elf_one: tuple[int, int], elf_two: tuple[int, int]) -> bool:
-		return min(elf_one) <= min(elf_two) and max(elf_two) <= max(elf_one)
+def elf_section_assignments_fully_contain(elf_id_one: tuple[int, int], elf_id_two: tuple[int, int]) -> bool:
+	def fully_contain(section_id_one: tuple[int, int], section_id_two: tuple[int, int]) -> bool:
+		return min(section_id_one) <= min(section_id_two) and max(section_id_two) <= max(section_id_one)
 
-	return fully_contain(elf_assignment_one, elf_assignment_two) or fully_contain(elf_assignment_two, elf_assignment_one)
+	return fully_contain(elf_id_one, elf_id_two) or fully_contain(elf_id_two, elf_id_one)
 
 
 def solution(elements: list[tuple[tuple[int, int], tuple[int, int]]]) -> int:
-	return sum(elf_assignments_fully_contain(*elf_assignments) for elf_assignments in elements)
+	return sum(elf_section_assignments_fully_contain(*elf_section_pair) for elf_section_pair in elements)
 
 
 def main():
