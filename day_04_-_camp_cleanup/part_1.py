@@ -17,9 +17,8 @@ def solution(elements: list[tuple[tuple[int, int], tuple[int, int]]]) -> int:
 def main():
 	aoc_day_loc = os.path.dirname(__file__)
 
-	with open(os.path.join(aoc_day_loc, 'inputs.txt'), 'rb') as file:
-		print(file.readlines())
-		inputs = []
+	with open(os.path.join(aoc_day_loc, 'inputs.txt'), 'r') as file:
+		inputs = [tuple(tuple(int(elem) for elem in row.split('-')) for row in line.strip().split(',')) for line in file.readlines()]
 
 	print('Day 04 : Camp Cleanup - part 1')
 	print(f'>>> Answer : {solution(inputs)}')

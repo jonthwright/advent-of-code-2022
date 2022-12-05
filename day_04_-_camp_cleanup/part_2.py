@@ -15,7 +15,7 @@ def main():
 	aoc_day_loc = os.path.dirname(__file__)
 
 	with open(os.path.join(aoc_day_loc, 'inputs.txt'), 'r') as file:
-		inputs = [tuple(tuple(int(elem) for elem in row.split('-')) for row in line.split(',')) for line in file.readlines()]
+		inputs = [tuple(tuple(int(elem) for elem in row.split('-')) for row in line.strip().split(',')) for line in file.readlines()]
 
 	print('Day 04 : Camp Cleanup - part 2')
 	print(f'>>> Answer : {solution(inputs)}')
