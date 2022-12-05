@@ -23,7 +23,7 @@ def parse_inputs(inputs: str) -> tuple[dict[int, list[str]], list[tuple[str, str
 
 	data_sets = defaultdict(deque)
 	max_sets_size = max(int(size) for size in re.split(r'\s+', input_row) if size.isnumeric())
-	inputs_line_regex = ' '.join(['.(.).'] * max_sets_size)
+	inputs_line_regex = ' '.join([r'[\[\s]?([\w\s])[\s\]]?'] * max_sets_size)
 
 	for input_line in inputs_sets:
 		line_regex = re.search(inputs_line_regex, input_line)
@@ -36,7 +36,7 @@ def parse_inputs(inputs: str) -> tuple[dict[int, list[str]], list[tuple[str, str
 
 	data_elements = []
 	for element in input_elements.strip().split('\n'):
-		instruction_regex = re.findall(r'(\d+)', element)
+		instruction_regex = re.findall(r'\d+', element)
 
 		assert instruction_regex, 'Could not parse of inputs!'
 		assert len(instruction_regex) == 3, 'Could not parse for the right number of inputs!'
