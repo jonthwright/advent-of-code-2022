@@ -14,7 +14,7 @@ Completed the challenges primarily in Python.
 |     **04**     |      [**_Camp Cleanup_**](https://adventofcode.com/2022/day/4)       |      [Click here](./day_04_-_camp_cleanup/part_1.py)       |      [Click here](./day_04_-_camp_cleanup/part_2.py)       |
 |     **05**     |      [**_Supply Stacks_**](https://adventofcode.com/2022/day/5)      |      [Click here](./day_05_-_supply_stacks/part_1.py)      |      [Click here](./day_05_-_supply_stacks/part_2.py)      |
 |     **06**     |     [**_Tuning Trouble_**](https://adventofcode.com/2022/day/6)      |     [Click here](./day_06_-_tuning_trouble/part_1.py)      |     [Click here](./day_06_-_tuning_trouble/part_2.py)      |
-|     **07**     |         [**_(none)_**](https://adventofcode.com/2022/day/7)          |                        [Click here]                        |                        [Click here]                        |
+|     **07**     | [**_No Space Left On Device_**](https://adventofcode.com/2022/day/7) | [Click here](./day_07_-_no_space_left_on_device/part_1.py) | [Click here](./day_07_-_no_space_left_on_device/part_2.py) |
 |     **08**     |         [**_(none)_**](https://adventofcode.com/2022/day/8)          |                        [Click here]                        |                        [Click here]                        |
 |     **09**     |         [**_(none)_**](https://adventofcode.com/2022/day/9)          |                        [Click here]                        |                        [Click here]                        |
 |     **10**     |         [**_(none)_**](https://adventofcode.com/2022/day/10)         |                        [Click here]                        |                        [Click here]                        |
