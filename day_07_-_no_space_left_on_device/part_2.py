@@ -15,12 +15,10 @@ def find_directory_sizes(commands: list[str]) -> defaultdict[str, int]:
 			directory_stack.pop()
 		elif change_directory := re.match(r'^\$ cd (\w+)$', command):
 			directory_stack.append(change_directory.group(1))
-		# elif command == '$ ls':
-		# 	continue
 		elif directory_size_regex := re.match(r'^(\d+) .+$', command):
 			current_directory = ''
 			for directory in directory_stack:
-				current_directory = os.path.join('/', current_directory, directory).replace('\\', '/')
+				current_directory = os.path.join(current_directory, directory).replace('\\', '/')
 				directory_sizes[current_directory] += int(directory_size_regex.group(1))
 
 	return directory_sizes
