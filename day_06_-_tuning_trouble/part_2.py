@@ -7,8 +7,7 @@ def solution(element: str) -> int:
 	packet_size = packet_index = 14
 
 	for i in range(len(element) - packet_size):
-		buffer = element[i: i + packet_size]
-		if len(set(buffer)) == packet_size:
+		if len(set(element[i: i + packet_size])) == packet_size:
 			return packet_index
 		packet_index += 1
 
