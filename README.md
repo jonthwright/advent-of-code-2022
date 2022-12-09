@@ -16,7 +16,7 @@ Completed the challenges primarily in Python.
 |     **06**     |     [**_Tuning Trouble_**](https://adventofcode.com/2022/day/6)      |     [Click here](./day_06_-_tuning_trouble/part_1.py)      |     [Click here](./day_06_-_tuning_trouble/part_2.py)      |
 |     **07**     | [**_No Space Left On Device_**](https://adventofcode.com/2022/day/7) | [Click here](./day_07_-_no_space_left_on_device/part_1.py) | [Click here](./day_07_-_no_space_left_on_device/part_2.py) |
 |     **08**     |   [**_Treetop Tree House_**](https://adventofcode.com/2022/day/8)    |   [Click here](./day_08_-_treetop_tree_house/part_1.py)    |   [Click here](./day_08_-_treetop_tree_house/part_2.py)    |
-|     **09**     |         [**_(none)_**](https://adventofcode.com/2022/day/9)          |                        [Click here]                        |                        [Click here]                        |
+|     **09**     |       [**_Rope Bridge_**](https://adventofcode.com/2022/day/9)       |       [Click here](./day_09_-_rope_bridge/part_1.py)       |       [Click here](./day_09_-_rope_bridge/part_2.py)       |
 |     **10**     |         [**_(none)_**](https://adventofcode.com/2022/day/10)         |                        [Click here]                        |                        [Click here]                        |
 |     **11**     |         [**_(none)_**](https://adventofcode.com/2022/day/11)         |                        [Click here]                        |                        [Click here]                        |
 |     **12**     |         [**_(none)_**](https://adventofcode.com/2022/day/12)         |                        [Click here]                        |                        [Click here]                        |
