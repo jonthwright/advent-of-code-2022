@@ -8,30 +8,30 @@ def tail_is_touching_heading(head_knot: complex, tail_knot: complex) -> bool:
 
 
 def tail_displacement(head_knot: complex, tail_knot: complex) -> complex:
-	vertical_displacement = (head_knot.real - tail_knot.real > 0) - (head_knot.real - tail_knot.real < 0)
-	horizontal_displacement = (head_knot.imag - tail_knot.imag > 0) - (head_knot.imag - tail_knot.imag < 0)
+	vertical_displacement = (head_knot.real > tail_knot.real) - (head_knot.real < tail_knot.real)
+	horizontal_displacement = (head_knot.imag > tail_knot.imag) - (head_knot.imag < tail_knot.imag)
 
 	return complex(vertical_displacement, horizontal_displacement)
 
 
 def solution(elements: list[tuple[str, int]]) -> int:
-	displacement_dict = {'U': 1j, 'D': -1j, 'L': -1, 'R': 1}
-	knot_locs = [0j for _ in range(10)]
+	directional_displacement_dict = {'U': 1j, 'D': -1j, 'L': -1, 'R': 1}
+	knot_locations = [0j for _ in range(10)]
 
-	tail_knots_visited = set()
+	tail_knot_locations_visited = set()
 
 	for direction, steps in elements:
 		for _ in range(steps):
-			knot_locs[0] = knot_locs[0] + displacement_dict[direction]
+			knot_locations[0] += directional_displacement_dict[direction]
 
-			for knot_index in range(len(knot_locs) - 1):
-				if not tail_is_touching_heading(knot_locs[knot_index], knot_locs[knot_index + 1]):
-					knot_locs[knot_index + 1] += tail_displacement(knot_locs[knot_index], knot_locs[knot_index + 1])
+			for knot in range(len(knot_locations) - 1):
+				if not tail_is_touching_heading(knot_locations[knot], knot_locations[knot + 1]):
+					knot_locations[knot + 1] += tail_displacement(knot_locations[knot], knot_locations[knot + 1])
 
-					if knot_index == 8:
-						tail_knots_visited.add(knot_locs[knot_index + 1])
+					if knot == len(knot_locations) - 2:
+						tail_knot_locations_visited.add(knot_locations[knot + 1])
 
-	return len(tail_knots_visited)
+	return len(tail_knot_locations_visited)
 
 
 def main():
