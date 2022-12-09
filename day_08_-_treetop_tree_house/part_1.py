@@ -3,27 +3,27 @@
 import os
 
 
-def validate_tree_location(new_tree_row: int, new_tree_col: int, map_height: int, map_width: int) -> bool:
-	return 0 <= new_tree_row < map_height and 0 <= new_tree_col < map_width
+def validate_tree_location(new_tree: complex, map_height: int, map_width: int) -> bool:
+	return 0 <= new_tree.real < map_height and 0 <= new_tree.imag < map_width
 
 
 def count_visible_tree_houses(trees_map: list[list[int]], tree_row: int, tree_col: int) -> bool:
 	tree_height = trees_map[tree_row][tree_col]
 	map_height, map_width = len(trees_map), len(trees_map[0])
-	original_tree_location = (tree_row, tree_col)
+	original_tree_location = complex(tree_row, tree_col)
 
-	neighbouring_trees = [(0, 1), (1, 0), (-1, 0), (0, -1)]
+	neighbouring_trees = [1j, 1, -1, -1j]
 	visible_from_outside = False
 
-	for y_offset, x_offset in neighbouring_trees:
-		tree_row, tree_col = original_tree_location
+	for offset in neighbouring_trees:
+		tree_loc = original_tree_location
 
-		while 0 <= tree_row < map_height and 0 <= tree_col < map_width:
-			tree_row, tree_col = tree_row + y_offset, tree_col + x_offset
+		while 0 <= tree_loc.real < map_height and 0 <= tree_loc.imag < map_width:
+			tree_loc += offset
 
-			if not validate_tree_location(tree_row, tree_col, map_height, map_width):
+			if not validate_tree_location(tree_loc, map_height, map_width):
 				visible_from_outside = True
-			elif trees_map[tree_row][tree_col] >= tree_height:
+			elif trees_map[int(tree_loc.real)][int(tree_loc.imag)] >= tree_height:
 				break
 
 	return visible_from_outside

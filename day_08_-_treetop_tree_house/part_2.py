@@ -3,29 +3,29 @@
 import os
 
 
-def validate_tree_location(new_tree_row: int, new_tree_col: int, map_height: int, map_width: int) -> bool:
-	return 0 < new_tree_row < map_height - 1 and 0 < new_tree_col < map_width - 1
+def validate_tree_location(new_tree: complex, map_height: int, map_width: int) -> bool:
+	return 0 < new_tree.real < map_height - 1 and 0 < new_tree.imag < map_width - 1
 
 
 def interior_scenic_score(trees_map: list[list[int]], tree_row: int, tree_col: int) -> int:
 	tree_height = trees_map[tree_row][tree_col]
 	map_height, map_width = len(trees_map), len(trees_map[tree_row])
-	original_tree_location = (tree_row, tree_col)
+	original_tree_location = complex(tree_row, tree_col)
 
-	neighbouring_trees = [(0, 1), (1, 0), (-1, 0), (0, -1)]
+	neighbouring_trees = [1j, 1, -1, -1j]
 
 	scenic_score = 1
 
-	for y_offset, x_offset in neighbouring_trees:
-		tree_row, tree_col = original_tree_location
+	for offset in neighbouring_trees:
+		tree_loc = original_tree_location
 		distance_until_blocked = 0
 
-		while 0 < tree_row < map_height - 1 and 0 < tree_col < map_width - 1:
-			tree_row, tree_col = tree_row + y_offset, tree_col + x_offset
+		while 0 < tree_loc.real < map_height - 1 and 0 < tree_loc.imag < map_width - 1:
+			tree_loc += offset
 			distance_until_blocked += 1
 
-			is_valid_location = validate_tree_location(tree_row, tree_col, map_height, map_width)
-			if is_valid_location and trees_map[tree_row][tree_col] >= tree_height:
+			is_valid_location = validate_tree_location(tree_loc, map_height, map_width)
+			if is_valid_location and trees_map[int(tree_loc.real)][int(tree_loc.imag)] >= tree_height:
 				break
 
 		scenic_score *= distance_until_blocked
