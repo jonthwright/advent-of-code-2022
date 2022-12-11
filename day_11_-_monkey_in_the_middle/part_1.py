@@ -15,21 +15,21 @@ class Monkey:
 		operand_regex = re.search(r'^\s*Operation: new = old . (\d+)$', raw_monkey[2])
 
 		operation = operator.mul if operation_regex.groups(1)[0] == '*' else operator.add
-		self.monkey_op = lambda old: operation(old, int(operand_regex.groups(1)[0]) if operand_regex else old)
+		self.monkey_worry_level = lambda old: operation(old, int(operand_regex.groups(1)[0]) if operand_regex else old)
 
-		self.monkey_test = int(raw_monkey[3].replace('  Test: divisible by ', ''))
-		self.monkey_test_true = int(raw_monkey[4].replace('    If true: throw to monkey ', ''))
-		self.monkey_test_false = int(raw_monkey[5].replace('    If false: throw to monkey ', ''))
+		self.monkey_divisor = int(raw_monkey[3].replace('  Test: divisible by ', ''))
+		self.monkey_throw_true = int(raw_monkey[4].replace('    If true: throw to monkey ', ''))
+		self.monkey_throw_false = int(raw_monkey[5].replace('    If false: throw to monkey ', ''))
 		self.inspections = 0
 
 	def make_inspection(self) -> tuple[int, int]:
 		self.inspections += 1
-		self.items[0] = self.bored_level(self.monkey_op(self.items[0]))
-		monkey_dest = self.monkey_test_true if self.items[0] % self.monkey_test == 0 else self.monkey_test_false
+		self.items[0] = self.boredom_level(self.monkey_worry_level(self.items[0]))
+		monkey_dest = self.monkey_throw_true if self.items[0] % self.monkey_divisor == 0 else self.monkey_throw_false
 		return monkey_dest, self.items.pop(0)
 
 	@staticmethod
-	def bored_level(worry_level: int) -> int:
+	def boredom_level(worry_level: int) -> int:
 		return worry_level // 3
 
 	@staticmethod
