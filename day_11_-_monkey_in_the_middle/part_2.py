@@ -13,9 +13,8 @@ class Monkey:
 		self.items = [int(item) for item in raw_monkey[1].replace('  Starting items: ', '').split(', ')]
 
 		operation_regex = re.search(r'^\s*Operation: new = old (.) .+$', raw_monkey[2])
-		operand_regex = re.search(r'^\s*Operation: new = old . (\d+)$', raw_monkey[2])
-
 		operation = operator.mul if operation_regex.groups(1)[0] == '*' else operator.add
+		operand_regex = re.search(r'^\s*Operation: new = old . (\d+)$', raw_monkey[2])
 		self.monkey_worry_level = lambda old: operation(old, int(operand_regex.groups(1)[0]) if operand_regex else old)
 
 		self.monkey_divisor = int(raw_monkey[3].replace('  Test: divisible by ', ''))
@@ -35,8 +34,9 @@ class Monkey:
 
 	@staticmethod
 	def monkey_business(monkeys: list['Monkey']) -> int:
-		heapify(monkeys)
-		return heappop(monkeys).inspections * heappop(monkeys).inspections
+		monkeys_copy = monkeys.copy()
+		heapify(monkeys_copy)
+		return heappop(monkeys_copy).inspections * heappop(monkeys_copy).inspections
 
 	def __lt__(self, other: 'Monkey') -> bool:
 		return self.inspections > other.inspections
