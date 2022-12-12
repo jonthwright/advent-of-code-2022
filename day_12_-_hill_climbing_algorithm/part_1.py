@@ -8,17 +8,17 @@ def valid_hill_position(position: complex, width: int, height: int) -> bool:
 	return 0 <= int(position.real) < width and 0 <= int(position.imag) < height
 
 
-def get_start_and_end_positions(elevation_map: list[list[str]]) -> tuple[complex, complex]:
+def find_start_and_end_positions(hill_elevations: list[list[str]]) -> tuple[complex, complex]:
 	starting_position = ending_position = None
 
-	for row in range(len(elevation_map)):
-		for col in range(len(elevation_map[row])):
-			if elevation_map[row][col] == 'S':
+	for row in range(len(hill_elevations)):
+		for col in range(len(hill_elevations[row])):
+			if hill_elevations[row][col] == 'S':
 				starting_position = complex(row, col)
-				elevation_map[row][col] = 'a'
-			if elevation_map[row][col] == "E":
+				hill_elevations[row][col] = 'a'
+			if hill_elevations[row][col] == 'E':
 				ending_position = complex(row, col)
-				elevation_map[row][col] = "z"
+				hill_elevations[row][col] = 'z'
 
 	if starting_position is None:
 		raise Exception('Cannot find the starting position S in the elevation hills map')
@@ -31,9 +31,11 @@ def get_start_and_end_positions(elevation_map: list[list[str]]) -> tuple[complex
 
 def solution(elements: list[list[str]]) -> int | None:
 	hill_elevations = elements
-	starting_position, ending_position = get_start_and_end_positions(hill_elevations)
 	width, height = len(hill_elevations), len(hill_elevations[0])
+
+	starting_position, ending_position = find_start_and_end_positions(hill_elevations)
 	hills_frontier, seen_hill_elevations = deque([(starting_position, 0)]), {starting_position}
+
 	elevation_neighbour_offsets = (-1, 1, -1j, 1j)
 
 	while hills_frontier:
@@ -44,13 +46,13 @@ def solution(elements: list[list[str]]) -> int | None:
 
 		current_hill_elevation = ord(hill_elevations[int(current_hill.real)][int(current_hill.imag)])
 
-		for offset in elevation_neighbour_offsets:
-			neighbour_hill = current_hill + offset
+		for hill_position_offset in elevation_neighbour_offsets:
+			neighbour_hill = current_hill + hill_position_offset
 			valid_neighbour_hill = valid_hill_position(neighbour_hill, width, height)
 
 			if neighbour_hill not in seen_hill_elevations and valid_neighbour_hill:
 				neighbour_hill_elevation = ord(hill_elevations[int(neighbour_hill.real)][int(neighbour_hill.imag)])
-				if neighbour_hill_elevation <= current_hill_elevation + 1:
+				if neighbour_hill_elevation - current_hill_elevation <= 1:
 					hills_frontier.append((neighbour_hill, current_step_cost + 1))
 					seen_hill_elevations.add(neighbour_hill)
 
