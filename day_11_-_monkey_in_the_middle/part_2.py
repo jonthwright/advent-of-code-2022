@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-import math
 import operator
 import os
 import re
 from collections import deque
 from heapq import heapify, heappop
+from math import lcm, prod
 
 
 class Monkey:
@@ -39,12 +39,11 @@ class Monkey:
 		return worry_level % lowest_common_divisor
 
 	@staticmethod
-	def monkey_business(monkeys: list['Monkey']) -> int:
+	def monkey_business_level(monkeys: list['Monkey'], number_of_monkeys: int = 2) -> int:
 		monkeys_copy = monkeys.copy()
 		heapify(monkeys_copy)
 
-		monkey_one, monkey_two = heappop(monkeys_copy), heappop(monkeys_copy)
-		return monkey_one.inspections_made * monkey_two.inspections_made
+		return prod(heappop(monkeys_copy).inspections_made for _ in range(number_of_monkeys))
 
 	def __lt__(self, other: 'Monkey') -> bool:
 		return self.inspections_made > other.inspections_made
@@ -57,17 +56,16 @@ class Monkey:
 
 
 def solution(elements: list[Monkey]) -> int:
-	monkeys, number_of_turns = elements, 10000
+	monkeys, stuff_slinging_simian_shenanigans_rounds = elements, 10000
+	lowest_common_divisor = lcm(*(monkey.monkey_divisor for monkey in monkeys))
 
-	lowest_common_divisor = math.lcm(*(monkey.monkey_divisor for monkey in monkeys))
-
-	for _ in range(number_of_turns):
+	for _ in range(stuff_slinging_simian_shenanigans_rounds):
 		for current_monkey in range(len(monkeys)):
 			while monkeys[current_monkey].item_worry_levels:
 				destination_monkey, monkey_item = monkeys[current_monkey].make_inspection(lowest_common_divisor)
 				monkeys[destination_monkey].item_worry_levels.append(monkey_item)
 
-	return Monkey.monkey_business(monkeys)
+	return Monkey.monkey_business_level(monkeys)
 
 
 def main():
