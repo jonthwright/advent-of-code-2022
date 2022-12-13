@@ -20,7 +20,7 @@ Completed the challenges primarily in Python.
 |     **10**     |    [**_Cathode-Ray Tube_**](https://adventofcode.com/2022/day/10)     |    [Click here](./day_10_-_cathode-ray_tube/part_1.py)     |    [Click here](./day_10_-_cathode-ray_tube/part_2.py)     |
 |     **11**     |  [**_Monkey in the Middle_**](https://adventofcode.com/2022/day/11)   |  [Click here](./day_11_-_monkey_in_the_middle/part_1.py)   |  [Click here](./day_11_-_monkey_in_the_middle/part_2.py)   |
 |     **12**     | [**_Hill Climbing Algorithm_**](https://adventofcode.com/2022/day/12) | [Click here](./day_12_-_hill_climbing_algorithm/part_1.py) | [Click here](./day_12_-_hill_climbing_algorithm/part_2.py) |
-|     **13**     |         [**_(none)_**](https://adventofcode.com/2022/day/13)          |                        [Click here]                        |                        [Click here]                        |
+|     **13**     |     [**_Distress Signal_**](https://adventofcode.com/2022/day/13)     |     [Click here](./day_13_-_distress_signal/part_1.py)     |     [Click here](./day_13_-_distress_signal/part_2.py)     |
 |     **14**     |         [**_(none)_**](https://adventofcode.com/2022/day/14)          |                        [Click here]                        |                        [Click here]                        |
 |     **15**     |         [**_(none)_**](https://adventofcode.com/2022/day/15)          |                        [Click here]                        |                        [Click here]                        |
 |     **16**     |         [**_(none)_**](https://adventofcode.com/2022/day/16)          |                        [Click here]                        |                        [Click here]                        |
