@@ -21,7 +21,7 @@ Completed the challenges primarily in Python.
 |     **11**     |  [**_Monkey in the Middle_**](https://adventofcode.com/2022/day/11)   |  [Click here](./day_11_-_monkey_in_the_middle/part_1.py)   |  [Click here](./day_11_-_monkey_in_the_middle/part_2.py)   |
 |     **12**     | [**_Hill Climbing Algorithm_**](https://adventofcode.com/2022/day/12) | [Click here](./day_12_-_hill_climbing_algorithm/part_1.py) | [Click here](./day_12_-_hill_climbing_algorithm/part_2.py) |
 |     **13**     |     [**_Distress Signal_**](https://adventofcode.com/2022/day/13)     |     [Click here](./day_13_-_distress_signal/part_1.py)     |     [Click here](./day_13_-_distress_signal/part_2.py)     |
-|     **14**     |         [**_(none)_**](https://adventofcode.com/2022/day/14)          |                        [Click here]                        |                        [Click here]                        |
+|     **14**     |   [**_Regolith Reservoir_**](https://adventofcode.com/2022/day/14)    |   [Click here](./day_14_-_regolith_reservoir/part_1.py)    |   [Click here](./day_14_-_regolith_reservoir/part_2.py)    |
 |     **15**     |         [**_(none)_**](https://adventofcode.com/2022/day/15)          |                        [Click here]                        |                        [Click here]                        |
 |     **16**     |         [**_(none)_**](https://adventofcode.com/2022/day/16)          |                        [Click here]                        |                        [Click here]                        |
 |     **17**     |         [**_(none)_**](https://adventofcode.com/2022/day/17)          |                        [Click here]                        |                        [Click here]                        |
